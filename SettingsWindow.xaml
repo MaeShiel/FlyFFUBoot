@@ -141,11 +141,6 @@
                                   Foreground="{DynamicResource TextSecondary}"
                                   TextWrapping="Wrap"
                                   Margin="0,0,0,20"/>
-
-                        <TextBlock Text="Coming soon..." 
-                                  FontSize="13" 
-                                  Foreground="{DynamicResource TextSecondary}"
-                                  FontStyle="Italic"/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -166,10 +161,142 @@
                                   TextWrapping="Wrap"
                                   Margin="0,0,0,20"/>
 
-                        <TextBlock Text="Coming soon..." 
-                                  FontSize="13" 
-                                  Foreground="{DynamicResource TextSecondary}"
-                                  FontStyle="Italic"/>
+                        <!-- HP Location Section -->
+                        <Border Background="{DynamicResource CardBackground}"
+                               BorderBrush="{DynamicResource CardBorder}"
+                               BorderThickness="1"
+                               CornerRadius="6"
+                               Padding="15"
+                               Margin="0,0,0,15">
+                            <StackPanel>
+                                <TextBlock Text="HP Bar Detection Region" 
+                                          FontSize="16" 
+                                          FontWeight="SemiBold"
+                                          Foreground="{DynamicResource TextPrimary}"
+                                          Margin="0,0,0,10"/>
+                                
+                                <TextBlock Text="Define the screen region to capture and detect the HP bar." 
+                                          FontSize="12" 
+                                          Foreground="{DynamicResource TextSecondary}"
+                                          TextWrapping="Wrap"
+                                          Margin="0,0,0,15"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <!-- Min X -->
+                                    <TextBlock Grid.Row="0" Grid.Column="0" 
+                                              Text="Min X:" 
+                                              VerticalAlignment="Center"
+                                              FontSize="14"
+                                              FontWeight="Medium"
+                                              Foreground="{DynamicResource TextPrimary}"
+                                              Margin="0,0,10,0"/>
+                                    <TextBox x:Name="HpMinX"
+                                            Grid.Row="0" Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Padding="8"
+                                            FontSize="14"
+                                            Background="{DynamicResource WindowBackground}"
+                                            Foreground="{DynamicResource TextPrimary}"
+                                            BorderBrush="{DynamicResource CardBorder}"
+                                            BorderThickness="1"/>
+                                    
+                                    <!-- Max X -->
+                                    <TextBlock Grid.Row="0" Grid.Column="3" 
+                                              Text="Max X:" 
+                                              VerticalAlignment="Center"
+                                              FontSize="14"
+                                              FontWeight="Medium"
+                                              Foreground="{DynamicResource TextPrimary}"
+                                              Margin="0,0,10,0"/>
+                                    <TextBox x:Name="HpMaxX"
+                                            Grid.Row="0" Grid.Column="4"
+                                            VerticalAlignment="Center"
+                                            Padding="8"
+                                            FontSize="14"
+                                            Background="{DynamicResource WindowBackground}"
+                                            Foreground="{DynamicResource TextPrimary}"
+                                            BorderBrush="{DynamicResource CardBorder}"
+                                            BorderThickness="1"/>
+
+                                    <!-- Min Y -->
+                                    <TextBlock Grid.Row="2" Grid.Column="0" 
+                                              Text="Min Y:" 
+                                              VerticalAlignment="Center"
+                                              FontSize="14"
+                                              FontWeight="Medium"
+                                              Foreground="{DynamicResource TextPrimary}"
+                                              Margin="0,0,10,0"/>
+                                    <TextBox x:Name="HpMinY"
+                                            Grid.Row="2" Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Padding="8"
+                                            FontSize="14"
+                                            Background="{DynamicResource WindowBackground}"
+                                            Foreground="{DynamicResource TextPrimary}"
+                                            BorderBrush="{DynamicResource CardBorder}"
+                                            BorderThickness="1"/>
+                                    
+                                    <!-- Max Y -->
+                                    <TextBlock Grid.Row="2" Grid.Column="3" 
+                                              Text="Max Y:" 
+                                              VerticalAlignment="Center"
+                                              FontSize="14"
+                                              FontWeight="Medium"
+                                              Foreground="{DynamicResource TextPrimary}"
+                                              Margin="0,0,10,0"/>
+                                    <TextBox x:Name="HpMaxY"
+                                            Grid.Row="2" Grid.Column="4"
+                                            VerticalAlignment="Center"
+                                            Padding="8"
+                                            FontSize="14"
+                                            Background="{DynamicResource WindowBackground}"
+                                            Foreground="{DynamicResource TextPrimary}"
+                                            BorderBrush="{DynamicResource CardBorder}"
+                                            BorderThickness="1"/>
+                                </Grid>
+
+                                <Button Content="Capture Region Screenshot" 
+                                       Style="{StaticResource ModernButton}"
+                                       Background="{DynamicResource AccentBlue}"
+                                       BorderBrush="{DynamicResource AccentBlueBorder}"
+                                       Margin="0,15,0,0"
+                                       Click="CaptureHpRegion_Click"
+                                       HorizontalAlignment="Left"/>
+
+                                <!-- Screenshot Preview -->
+                                <Border x:Name="ScreenshotPreviewBorder"
+                                       BorderBrush="{DynamicResource CardBorder}"
+                                       BorderThickness="1"
+                                       CornerRadius="4"
+                                       Margin="0,15,0,0"
+                                       Visibility="Collapsed">
+                                    <StackPanel>
+                                        <TextBlock Text="Captured Region Preview:" 
+                                                  FontSize="12" 
+                                                  FontWeight="SemiBold"
+                                                  Foreground="{DynamicResource TextPrimary}"
+                                                  Margin="5,5,5,5"/>
+                                        <Image x:Name="ScreenshotPreview"
+                                              MaxHeight="150"
+                                              Stretch="Uniform"
+                                              Margin="5"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

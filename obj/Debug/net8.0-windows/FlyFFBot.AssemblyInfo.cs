@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlyFFBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e67663a0adaeccfc01091579da737677e085af99")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlyFFBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlyFFBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

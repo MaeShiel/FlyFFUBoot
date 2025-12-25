@@ -9,6 +9,7 @@
       "FlyFFBot/1.0.0": {
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.2739.15",
+          "System.Drawing.Common": "8.0.0",
           "Microsoft.Web.WebView2.Core": "1.0.2739.15",
           "Microsoft.Web.WebView2.WinForms": "1.0.2739.15",
           "Microsoft.Web.WebView2.Wpf": "1.0.2739.15"
@@ -34,6 +35,12 @@
             "assetType": "native",
             "fileVersion": "1.0.2739.15"
           }
+        }
+      },
+      "Microsoft.Win32.SystemEvents/8.0.0": {},
+      "System.Drawing.Common/8.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "8.0.0"
         }
       },
       "Microsoft.Web.WebView2.Core/1.0.2739.15": {
@@ -74,6 +81,20 @@
       "sha512": "sha512-hZg7vHWBg4RIiK3rhkNqX3hcBqqoVXVrrO2BVrVOiSmEgfLa7lY64G1tWh2VY84MfHIFLCAQNwn3Rwvu+ICHyw==",
       "path": "microsoft.web.webview2/1.0.2739.15",
       "hashPath": "microsoft.web.webview2.1.0.2739.15.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw==",
+      "path": "microsoft.win32.systemevents/8.0.0",
+      "hashPath": "microsoft.win32.systemevents.8.0.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JkbHJjtI/dWc5dfmEdJlbe3VwgZqCkZRtfuWFh5GOv0f+gGCfBtzMpIVkmdkj2AObO9y+oiOi81UGwH3aBYuqA==",
+      "path": "system.drawing.common/8.0.0",
+      "hashPath": "system.drawing.common.8.0.0.nupkg.sha512"
     },
     "Microsoft.Web.WebView2.Core/1.0.2739.15": {
       "type": "reference",

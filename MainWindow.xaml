@@ -191,12 +191,14 @@
                                Style="{StaticResource ModernButton}"
                                Background="{DynamicResource AccentGreen}"
                                BorderBrush="{DynamicResource AccentGreenBorder}"
+                               Click="StartBot_Click"
                                Margin="0,0,10,10"/>
                         
                         <Button Content="Stop Bot" 
                                Style="{StaticResource ModernButton}"
                                Background="{DynamicResource AccentRed}"
                                BorderBrush="{DynamicResource AccentRedBorder}"
+                               Click="StopBot_Click"
                                Margin="0,0,10,10"/>
                         
                         <Button x:Name="SettingsButton"
@@ -238,21 +240,23 @@
                                   Margin="0,0,0,5"/>
                         
                         <Border Grid.Row="1"
+                               x:Name="HPBarContainer"
                                Height="30"
                                Background="{DynamicResource LogBackground}"
                                BorderBrush="{DynamicResource CardBorder}"
                                BorderThickness="1"
                                CornerRadius="4">
-                            <Grid>
+                            <Grid x:Name="HPBarGrid">
                                 <!-- HP Fill -->
                                 <Border x:Name="HPBar"
                                        Background="#48BB78"
                                        CornerRadius="4"
-                                       HorizontalAlignment="Left"
-                                       Width="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=ActualWidth}"/>
+                                       Width="0"
+                                       HorizontalAlignment="Left"/>
                                 
                                 <!-- HP Text Overlay -->
-                                <TextBlock Text="100%"
+                                <TextBlock x:Name="HPText"
+                                          Text="0%"
                                           FontSize="13"
                                           FontWeight="Bold"
                                           Foreground="White"
@@ -301,6 +305,93 @@
                                       MinWidth="40"/>
                         </Grid>
                     </Grid>
+
+                    <!-- Buffer HP Bar -->
+                    <TextBlock Text="Buffer Stats" 
+                              FontSize="16" 
+                              FontWeight="SemiBold"
+                              Foreground="{DynamicResource TextPrimary}"
+                              Margin="0,20,0,10"/>
+                    
+                    <Grid Margin="0,0,0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0"
+                                  Text="Buffer HP" 
+                                  FontSize="12" 
+                                  FontWeight="SemiBold"
+                                  Foreground="{DynamicResource TextPrimary}"
+                                  Margin="0,0,0,5"/>
+                        
+                        <Border Grid.Row="1"
+                               x:Name="BufferHPBarContainer"
+                               Height="30"
+                               Background="{DynamicResource LogBackground}"
+                               BorderBrush="{DynamicResource CardBorder}"
+                               BorderThickness="1"
+                               CornerRadius="4">
+                            <Grid x:Name="BufferHPBarGrid">
+                                <!-- Buffer HP Fill -->
+                                <Border x:Name="BufferHPBar"
+                                       Background="#48BB78"
+                                       CornerRadius="4"
+                                       Width="0"
+                                       HorizontalAlignment="Left"/>
+                                
+                                <!-- Buffer HP Text Overlay -->
+                                <TextBlock x:Name="BufferHPText"
+                                          Text="0%"
+                                          FontSize="13"
+                                          FontWeight="Bold"
+                                          Foreground="White"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <!-- Buffer HP Threshold Slider -->
+                    <Grid Margin="0,15,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0"
+                                  Text="Buffer HP Threshold" 
+                                  FontSize="12" 
+                                  FontWeight="SemiBold"
+                                  Foreground="{DynamicResource TextPrimary}"
+                                  Margin="0,0,0,5"/>
+                        
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Slider x:Name="BufferHPThresholdSlider"
+                                   Grid.Column="0"
+                                   Minimum="0"
+                                   Maximum="100"
+                                   Value="50"
+                                   TickFrequency="10"
+                                   IsSnapToTickEnabled="True"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                            
+                            <TextBlock Grid.Column="1"
+                                      Text="{Binding ElementName=BufferHPThresholdSlider, Path=Value, StringFormat={}{0:0}%}"
+                                      FontSize="12"
+                                      FontWeight="SemiBold"
+                                      Foreground="{DynamicResource TextPrimary}"
+                                      VerticalAlignment="Center"
+                                      MinWidth="40"/>
+                        </Grid>
+                    </Grid>
                 </StackPanel>
             </Border>
 
@@ -329,7 +420,18 @@
                     <Button Grid.Column="1"
                            Content="Clear Log" 
                            Style="{StaticResource ModernButton}"
-                           Padding="10,5"/>
+                           Padding="10,5"
+                           Click="ClearLog_Click"
+                           Margin="0,0,10,0"/>
+                    
+                    <Button Grid.Column="1"
+                           Content="Copy Log" 
+                           Style="{StaticResource ModernButton}"
+                           Background="{DynamicResource AccentBlue}"
+                           BorderBrush="{DynamicResource AccentBlueBorder}"
+                           Padding="10,5"
+                           Click="CopyLog_Click"
+                           Margin="80,0,0,0"/>
                 </Grid>
 
                 <!-- Log Content -->
@@ -340,45 +442,19 @@
                        CornerRadius="6">
                     <ScrollViewer VerticalScrollBarVisibility="Auto"
                                  HorizontalScrollBarVisibility="Auto">
-                        <ListBox x:Name="ActivityLog"
+                        <TextBox x:Name="ActivityLog"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Foreground="{DynamicResource TextPrimary}"
                                 FontFamily="Consolas"
                                 FontSize="13"
-                                Padding="10">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
-                                    <Setter Property="Background" Value="Transparent"/>
-                                    <Setter Property="BorderThickness" Value="0"/>
-                                    <Setter Property="Padding" Value="5,3"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="ListBoxItem">
-                                                <Border Background="{TemplateBinding Background}"
-                                                       Padding="{TemplateBinding Padding}">
-                                                    <ContentPresenter/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                            
-                            <!-- Sample log entries -->
-                            <TextBlock Text="[12:00:00] Bot initialized successfully" 
-                                      Foreground="{DynamicResource LogSuccess}"/>
-                            <TextBlock Text="[12:00:01] Connecting to game..." 
-                                      Foreground="{DynamicResource LogInfo}"/>
-                            <TextBlock Text="[12:00:03] Connected to FlyFF Universe" 
-                                      Foreground="{DynamicResource LogSuccess}"/>
-                            <TextBlock Text="[12:00:05] Character selected: YourCharacter" 
-                                      Foreground="{DynamicResource LogInfo}"/>
-                            <TextBlock Text="[12:00:07] Bot is ready" 
-                                      Foreground="{DynamicResource LogSuccess}"/>
-                            <TextBlock Text="[12:00:10] Waiting for start command..." 
-                                      Foreground="{DynamicResource LogInfo}"/>
-                        </ListBox>
+                                Padding="10"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap"
+                                AcceptsReturn="True"
+                                VerticalScrollBarVisibility="Auto"
+                                HorizontalScrollBarVisibility="Auto"
+                                Text="[12:00:00] Bot initialized successfully&#x0a;[12:00:01] Connecting to game...&#x0a;[12:00:03] Connected to FlyFF Universe&#x0a;[12:00:05] Character selected: YourCharacter&#x0a;[12:00:07] Bot is ready&#x0a;[12:00:10] Waiting for start command..."/>
                     </ScrollViewer>
                 </Border>
 

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyFFBot", "FlyFFBot.csproj", "{9C931720-4976-15E1-0A12-146D8811F83A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C931720-4976-15E1-0A12-146D8811F83A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C931720-4976-15E1-0A12-146D8811F83A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C931720-4976-15E1-0A12-146D8811F83A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C931720-4976-15E1-0A12-146D8811F83A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {765EC03E-DCA8-4299-8A59-46FBA7FEA190}
+	EndGlobalSection
+EndGlobal

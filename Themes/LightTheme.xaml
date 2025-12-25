@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Light Theme Colors -->
+    
+    <!-- Background Colors -->
+    <SolidColorBrush x:Key="WindowBackground" Color="#F5F7FA"/>
+    <SolidColorBrush x:Key="CardBackground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="CardBorder" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="LogBackground" Color="#F8FAFC"/>
+    <SolidColorBrush x:Key="LogBorder" Color="#E2E8F0"/>
+    
+    <!-- Text Colors -->
+    <SolidColorBrush x:Key="TextPrimary" Color="#1A202C"/>
+    <SolidColorBrush x:Key="TextSecondary" Color="#718096"/>
+    
+    <!-- Button Colors -->
+    <SolidColorBrush x:Key="ButtonBackground" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="#2D3748"/>
+    <SolidColorBrush x:Key="ButtonBorder" Color="#CBD5E0"/>
+    <SolidColorBrush x:Key="ButtonHoverBackground" Color="#CBD5E0"/>
+    <SolidColorBrush x:Key="ButtonPressedBackground" Color="#A0AEC0"/>
+    
+    <!-- Toggle Colors -->
+    <SolidColorBrush x:Key="ToggleBackground" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="ToggleHoverBackground" Color="#CBD5E0"/>
+    
+    <!-- Accent Colors -->
+    <SolidColorBrush x:Key="AccentGreen" Color="#48BB78"/>
+    <SolidColorBrush x:Key="AccentGreenBorder" Color="#38A169"/>
+    <SolidColorBrush x:Key="AccentRed" Color="#F56565"/>
+    <SolidColorBrush x:Key="AccentRedBorder" Color="#E53E3E"/>
+    <SolidColorBrush x:Key="AccentBlue" Color="#4299E1"/>
+    <SolidColorBrush x:Key="AccentBlueBorder" Color="#3182CE"/>
+    
+    <!-- Log Message Colors -->
+    <SolidColorBrush x:Key="LogSuccess" Color="#48BB78"/>
+    <SolidColorBrush x:Key="LogInfo" Color="#4299E1"/>
+    <SolidColorBrush x:Key="LogWarning" Color="#ED8936"/>
+    <SolidColorBrush x:Key="LogError" Color="#F56565"/>
+    
+    <!-- Shadow -->
+    <Color x:Key="ShadowColor">#000000</Color>
+    
+</ResourceDictionary>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PxzYtuiAiyc=",
+  "success": true,
+  "projectFilePath": "E:\\FLYFF FTOOLS U\\FlyFFBot\\FlyFFBot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Maeshiel\\.nuget\\packages\\microsoft.web.webview2\\1.0.2739.15\\microsoft.web.webview2.1.0.2739.15.nupkg.sha512"
+  ],
+  "logs": []
+}
